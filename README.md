@@ -20,5 +20,7 @@
 
 Why not use be-calculating? be-observing?
 
-The most significant feature that be-mediating has that the others don't is the ability to many to many.
+be-calculating is focused on setting the text display for the adorned element.
+
+be-mediating allows for multiple side-by-side's
 
