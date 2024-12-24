@@ -1,51 +1,20 @@
-# be-mediating (🕊️)
+# be-mediating (🕊️) [TODO]
 
 
 ```html
-<host-element>
+<thin-skin>
     #shadow
-    <script nomodule>
-        export const readOnlyHandler = ({remoteInstance, $0}) => ({
-            checked: remoteInstance.readOnly ? 'on' : 'off',
-        });
+    <mood-stone></mood-stone>
+    <script nomodule be-mediating="from ~toggleElement:change to ~moodStone." >
+        {
+            isHappy: f.toggleElement.checked
+        }
     </script>
-    <toggle-element enh-be-linked='
-        When read only property of host changes assign result of read only handler to $0. 
-    '></toggle-element>
+    <toggle-element disabled></toggle-element>
+
     <be-hive></be-hive>
-</host-element>
+</thin-skin>
 ```
 
-and between child and host
+"defer-hydration" also works instead of disabled.
 
-```html
-<host-element>
-    #shadow
-        <script nomodule>
-            export const myHandler = ({remoteInstance, $0}) => ({
-
-            })
-        </script>
-        <toggle-element be-linked='
-            On toggle event of $0 assign result of my handler to host.
-        '>
-        <be-hive></be-hive>
-</host-element>
-```
-
-*be-mediating allows us to combine the two:
-
-```html
-<mood-stone>
-    #shadow
-        <script nomodule be-mediating='between /isHappy and @isChecked'>
-            export const upFlow=({}) => {
-
-            }
-            export const downFlow=({}) => {
-
-            }
-        </script>
-        <toggle-element name=isChecked></toggle-element>
-</mood-stone>
-```
