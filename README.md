@@ -18,3 +18,7 @@
 
 "defer-hydration" also works instead of disabled.
 
+Why not use be-calculating? be-observing?
+
+The most significant feature that be-mediating has that the others don't is the ability to many to many.
+
