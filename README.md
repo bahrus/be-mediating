@@ -1,6 +1,5 @@
 # be-mediating [TODO]
 
-*be-linked" support one-way mediating between host and child:
 
 ```html
 <host-element>
