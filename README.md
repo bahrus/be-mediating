@@ -35,7 +35,4 @@ The following table lists different scenarios, and where each alternative enhanc
 
 \* By "main property" I mean the "most important" property for an element -- textContent for a div, value for the output / input element, href for the anchor tag, for example.
 
-be-calculating is focused on setting the text display for the adorned element.
-
-be-mediating allows for multiple side-by-side's
 
