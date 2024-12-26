@@ -24,7 +24,7 @@ The following table lists different scenarios, and where each alternative enhanc
 
 | Scenario                                                                                                                                                                    | Best Fit                                                     |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------|
-| Calculate the "main property"* based on aggregating values of multiple peer elements.  Scripting expressions a must.                                                        | [be-calculating](https://github.com/bahrus/be-calculating)   |
+| Calculate the "main property"* based on aggregating values of multiple peer elements.  Registered scripts or scripting expressions a must.                                  | [be-calculating](https://github.com/bahrus/be-calculating)   |
 | Pass "constant" properties from the adorned element to peer elements or the host on user interaction. Strictly declarative.                                                 | [be-elevating](https://github.com/bahrus/be-elevating)       |
 | Invoke method of host or peer element by name.  Purely declarative.                                                                                                         | [be-invoking](https://github.com/bahrus/be-invoking)         |
 | Two way bind, strictly declaratively, between an element and another peer element or the host.                                                                              | [be-bound](https://github.com/bahrus/be-bound)               |
