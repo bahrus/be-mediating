@@ -20,6 +20,12 @@
 
 Why not use be-calculating? be-observing?
 
+The following table lists different scenarios, and where each enhancement shines
+
+| Scenario                                                                                                            | Best Fit                                                     |
+|---------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------|
+| Calculate the "main" property based on aggregating values of multiple peer elements.  Scripting expressions a must. | [be-calculating](https://github.com/bahrus/be-calculating)   |
+
 be-calculating is focused on setting the text display for the adorned element.
 
 be-mediating allows for multiple side-by-side's
