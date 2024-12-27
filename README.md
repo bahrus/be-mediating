@@ -5,9 +5,9 @@
 <thin-skin>
     #shadow
     <mood-stone></mood-stone>
-    <script nomodule be-mediating="from ~toggleElement:change to ~moodStone." >
+    <script nomodule be-mediating="from ~toggleElement?.checked:change to ~moodStone." >
         {
-            isHappy: f.toggleElement.checked
+            isHappy: f.toggleElement
         }
     </script>
     <toggle-element disabled></toggle-element>
@@ -18,7 +18,7 @@
 
 "defer-hydration" also works instead of disabled.
 
-Why not use be-calculating? be-observing?
+
 
 The following table lists different scenarios, and where each alternative enhancement shines
 
@@ -35,4 +35,4 @@ The following table lists different scenarios, and where each alternative enhanc
 
 \* By "main property" I mean the "most important" property for an element -- textContent for a div, value for the output / input element, href for the anchor tag, for example.
 
-
+"be-mediating" is the canonical name for this element enhancement, but 
