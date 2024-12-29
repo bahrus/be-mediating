@@ -42,5 +42,17 @@ In the table above, this enhancement overlaps most heavily with *be-observing*.
 
 These are the superpowers that be-mediating possesses, where *be-observing* falls short:
 
-1.  Easier support for script tags.  *be-observing* doesn't provide any specific support for script tags, which may be easier to use, especially when working with quotes, double quotes, and other risky characters.  As the documentation for *be-observing*, indicates, it can work with a loosely coupled enhancement, like *be-eventing*, but it is a little more clunky.
-2.  *be-mediating* can transmit updates to multiple target elements
+1.  Easier support for script tags.  *be-observing* doesn't provide any specific support for script tags, which may be easier to use, especially when working with quotes, double quotes, and other risky characters.  As the documentation for *be-observing*, indicates, it can work with a loosely coupled enhancement, like *be-eventing*, but it is a little more clunky. [TODO]
+2.  *be-mediating* can transmit updates to multiple target elements [TODO]
+3.  The first instance of a mediating expression can be "registered" as a custom element, and reused with other markup where that makes sense.  In fact, even the first instance can be registered outisde the template and referenced [TODO]
+
+```html
+<thin-skin>
+    #shadow
+    <mood-stone></mood-stone>
+    <script nomodule=mood-changer 🕊️</script>
+    <toggle-element disabled></toggle-element>
+
+    <be-hive></be-hive>
+</thin-skin>
+```
