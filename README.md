@@ -5,11 +5,9 @@
 <thin-skin>
     #shadow
     <mood-stone></mood-stone>
-    <script nomodule be-mediating="from ~toggleElement?.checked:change to ~moodStone." >
-        {
-            isHappy: f.toggleElement
-        }
-    </script>
+    <script nomodule 🕊️="from ~toggleElement?.checked:change to ~moodStone.">({
+        isHappy: f.toggleElement
+    )}</script>
     <toggle-element disabled></toggle-element>
 
     <be-hive></be-hive>
