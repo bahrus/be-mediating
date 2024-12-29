@@ -33,4 +33,13 @@ The following table lists different scenarios, and where each alternative enhanc
 
 \* By "main property" I mean the "most important" property for an element -- textContent for a div, value for the output / input element, href for the anchor tag, for example.
 
-"be-mediating" is the canonical name for this element enhancement, but 
+"be-mediating", the name of this package, is the canonical name for this element enhancement.
+
+## Does this overlap 100% with be-observing?
+
+In the table above, this enhancement overlaps most heavily with *be-observing*.
+
+These are the superpowers that be-mediating possesses, where *be-observing* falls short:
+
+1.  Easier support for script tags.  *be-observing* doesn't provide any specific support for script tags, which may be easier to use, especially when working with quotes, double quotes, and other risky characters.  As the documentation for *be-observing*, indicates, it can work with a loosely coupled enhancement, like *be-eventing*, but it is a little more clunky.
+2.  *be-mediating* can transmit updates to multiple target elements
