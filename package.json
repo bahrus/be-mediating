@@ -1,11 +1,40 @@
 {
   "name": "be-mediating",
   "version": "0.0.0",
-  "description": "",
+  "keywords": [
+    "web-components",
+    "web-component",
+    "custom-element",
+    "custom-elements"
+  ],
+  "description": "Connect peer elements together with a dash of script.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "serve": "python3 ./node_modules/ssi-server/ssi_server.py",
+    "test": "playwright test",
+    "safari": "npx playwright wk http://localhost:8000",
+    "update": "ncu -u && npm install"
   },
-  "author": "",
+  "dependencies": {
+    "be-enhanced": "0.0.163",
+    "be-hive": "0.0.243",
+    "trans-render": "0.0.877"
+  },
+  "devDependencies": {
+    "ssi-server": "0.0.1",
+    "@playwright/test": "1.49.1",
+    "xtal-element": "0.0.627"
+  },
+  "exports": {
+    ".": "./be-mediating.js",
+    "./be-mediating.js": "./be-mediating.js",
+    "./emc.js": "./emc.js",
+    "./🕊️.js": "./🕊️.js"
+  },
+  "files": [
+    "*.js",
+    "types.d.ts"
+  ],
+  "author": "Bruce B. Anderson <anderson.bruce.b@gmail.com>",
   "license": "MIT"
 }
