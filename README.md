@@ -1,5 +1,6 @@
 # be-mediating (🕊️) [TODO]
 
+Attribute equivalent of [Defining a piping custom element](https://github.com/bahrus/p-et-alia)
 
 ```html
 <thin-skin>
