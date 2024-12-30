@@ -11,6 +11,7 @@ import { dispatchEvent as de } from 'trans-render/positractions/dispatchEvent.js
  */
 class BeMediating extends BE  {
     de = de;
+    
     /**
      * @type {BEConfig<BAP, Actions & IEnhancement, any>}
      */
