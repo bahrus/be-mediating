@@ -20,6 +20,9 @@ class BeMediating extends BE  {
             ...propInfo,
             parsedStatements:{}
         },
+        compacts:{
+            when_parsedStatements_changes_invoke_hydrate: 0,
+        },
         positractions: [
             resolved, rejected,
             {
@@ -37,7 +40,7 @@ class BeMediating extends BE  {
      * 
      * @param {BAP} self 
      */
-    async seek(self){
+    async hydrate(self){
         const {parsedStatements} = self;
         console.log({parsedStatements});
         return /** @type {PAP} */({
