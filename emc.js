@@ -28,7 +28,8 @@ export const emc = {
                 parsedStatements: [
                     {
                         regExp: fromOriginSpecifierToTargetSpecifiers,
-                        defaultVals:{}
+                        defaultVals:{},
+                        dssArrayKeys,
                     }
                 ]
             }
