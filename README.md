@@ -50,7 +50,7 @@ These are the superpowers that be-mediating possesses, where *be-observing* fall
 <thin-skin>
     #shadow
     <mood-stone></mood-stone>
-    <script nomodule=mood-changer 🕊️</script>
+    <script nomodule=mood-changer 🕊️></script>
     <toggle-element disabled></toggle-element>
 
     <be-hive></be-hive>
