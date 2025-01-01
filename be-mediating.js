@@ -18,6 +18,7 @@ class BeMediating extends BE  {
     static config = {
         propInfo: {
             ...propInfo,
+            parsedStatements:{}
         },
         positractions: [
             resolved, rejected,
@@ -31,6 +32,17 @@ class BeMediating extends BE  {
 
 
     warn=console.warn;
+
+    /**
+     * 
+     * @param {BAP} self 
+     */
+    async seek(self){
+        const {parsedStatements} = self;
+        console.log({parsedStatements});
+        return /** @type {PAP} */({
+        });
+    }
 }
 
 await BeMediating.bootUp();
