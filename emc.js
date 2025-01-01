@@ -6,13 +6,14 @@ import {Registry} from 'be-hive/Registry.js';
 /** @import {Actions, PAP,  AP} from './ts-refs/be-mediating/types' */;
 
 const fromOriginSpecifierToTargetSpecifiers 
-    = String.raw `from (?<originSpecifier>.*) to (?<targetSpecifier>.*)`;
+    = String.raw `from (?<originPart>.*) to (?<targetPart>.*)`;
 
 /**
  * @type {Array<[string, string]>}
  */
 const dssArrayKeys = [
-    ['originSpecifier', 'targetSpecifier']
+    ['originPart', 'originSpecifier'],
+    ['targetPart', 'targetSpecifier']
 ];
 
 /**
