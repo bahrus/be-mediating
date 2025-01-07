@@ -6,7 +6,7 @@ Attribute equivalent of [Defining a piping custom element](https://github.com/ba
 <thin-skin>
     #shadow
     <mood-stone></mood-stone>
-    <script nomodule 🕊️="from ~toggleElement?.checked:change to ~moodStone.">({
+    <script nomodule 🕊️="from ~toggleElement?.checked:change to ~moodStone">({
         isHappy: f.toggleElement
     )}</script>
     <toggle-element disabled></toggle-element>
