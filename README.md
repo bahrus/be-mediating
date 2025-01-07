@@ -10,7 +10,24 @@ The following example is "close to the platform" which unfortunately means it wo
 <thin-skin>
     #shadow
     <mood-stone></mood-stone>
-    <script onchange="event.r.isHappy = event.f.toggleElement" 🕊️="from ~toggleElement?.checked:change to ~moodStone"></script>
+    <script
+        be-mediating="between ~moodStone and ~toggleElement::change"
+        onkeyup="event.f.moodStone.isHappy = event.f.toggleElement.checked"
+        onkeydown="event.f.toggleElement.textContent = event.f.moodStone.color"
+    ></script>
+    <toggle-element disabled></toggle-element>
+
+    <be-hive></be-hive>
+</thin-skin>
+```
+
+```html
+<thin-skin>
+    #shadow
+    <mood-stone></mood-stone>
+    <script
+        🕊️="between ~toggleElement?.checked::change and ~moodStone"
+        onkeyup="event.r.isHappy = event.f.toggleElement" ></script>
     <toggle-element disabled></toggle-element>
 
     <be-hive></be-hive>
