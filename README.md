@@ -4,7 +4,7 @@ Attribute equivalent of [Defining a piping custom element](https://github.com/ba
 
 ## CSP unsafe example [TODO]
 
-The following example is "close to the platform" which unfortunately means it won't survive minimum recommended CSP scrutiny:
+The following example is "close to the platform" which unfortunately means it won't survive minimum recommended CSP scrutiny.  It uses the canonical name.
 
 ```html
 <thin-skin>
@@ -12,6 +12,23 @@ The following example is "close to the platform" which unfortunately means it wo
     <mood-stone></mood-stone>
     <script
         be-mediating="between ~moodStone and ~toggleElement::change"
+        onkeyup="event.f.moodStone.isHappy = event.f.toggleElement.checked"
+        onkeydown="event.f.toggleElement.textContent = event.f.moodStone.color"
+    ></script>
+    <toggle-element disabled></toggle-element>
+
+    <be-hive></be-hive>
+</thin-skin>
+```
+
+In less formal, controlled environments:
+
+```html
+<thin-skin>
+    #shadow
+    <mood-stone></mood-stone>
+    <script
+        🕊️="between ~moodStone and ~toggleElement::change"
         onkeyup="event.f.moodStone.isHappy = event.f.toggleElement.checked"
         onkeydown="event.f.toggleElement.textContent = event.f.moodStone.color"
     ></script>
