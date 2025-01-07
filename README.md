@@ -38,18 +38,7 @@ In less formal, controlled environments:
 </thin-skin>
 ```
 
-```html
-<thin-skin>
-    #shadow
-    <mood-stone></mood-stone>
-    <script
-        🕊️="between ~toggleElement?.checked::change and ~moodStone"
-        onkeyup="event.r.isHappy = event.f.toggleElement" ></script>
-    <toggle-element disabled></toggle-element>
 
-    <be-hive></be-hive>
-</thin-skin>
-```
 
 ## CSP safe example [TODO]
 
@@ -60,8 +49,9 @@ This example can be made to work with CSP if the proper hash token is added to t
 <thin-skin>
     #shadow
     <mood-stone></mood-stone>
-    <script nomodule 🕊️="from ~toggleElement?.checked:change to ~moodStone">({
-        isHappy: f.toggleElement
+    <script nomodule 🕊️="between ~moodStone and ~toggleElement::change">({
+        '^': e => e.f.moodStone.isHappy = e.f.toggleElement.checked,
+        'Y': e => e.f.toggleElement.textContent = e.f.moodStone.color
     )}</script>
     <toggle-element disabled></toggle-element>
 
