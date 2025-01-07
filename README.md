@@ -2,6 +2,26 @@
 
 Attribute equivalent of [Defining a piping custom element](https://github.com/bahrus/p-et-alia)
 
+## CSP unsafe example [TODO]
+
+The following example is "close to the platform" which unfortunately means it won't survive minimum recommended CSP scrutiny:
+
+```html
+<thin-skin>
+    #shadow
+    <mood-stone></mood-stone>
+    <script onchange="event.r.isHappy = event.f.toggleElement" 🕊️="from ~toggleElement?.checked:change to ~moodStone"></script>
+    <toggle-element disabled></toggle-element>
+
+    <be-hive></be-hive>
+</thin-skin>
+```
+
+## CSP safe example [TODO]
+
+This example can be made to work with CSP if the proper hash token is added to the meta / http header:
+
+
 ```html
 <thin-skin>
     #shadow
