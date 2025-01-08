@@ -4,7 +4,7 @@ Attribute equivalent of [Defining a piping custom element](https://github.com/ba
 
 ## CSP unsafe example [TODO]
 
-The following example is "close to the platform" which unfortunately means it won't survive minimum recommended CSP scrutiny.  It uses the canonical name.
+The following example is "close to the platform," which unfortunately means it won't survive minimum recommended CSP scrutiny.  This first example uses the canonical name "be-mediating" for the custom attribute base.
 
 ```html
 <thin-skin>
