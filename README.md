@@ -62,7 +62,9 @@ This example can be made to work with CSP if the proper hash token is added to t
 "defer-hydration" also works instead of disabled. [TODO]
 
 
+## many-to many? [TODO]
 
+The example above demonstrates a 1-1.  Can we extend that?
 
 
 The following table lists different scenarios, and where each alternative enhancement shines
