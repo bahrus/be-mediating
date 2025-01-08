@@ -12,8 +12,8 @@ The following example is "close to the platform," which unfortunately means it w
     <mood-stone></mood-stone>
     <script
         be-mediating="between ~moodStone and ~toggleElement::change"
-        onkeyup="event.f.moodStone.isHappy = event.f.toggleElement.checked"
-        onkeydown="event.f.toggleElement.textContent = event.f.moodStone.color"
+        onkeyup="event.r = {isHappy: event.f.toggleElement.checked}"
+        onkeydown="event.r = {textContent: event.f.moodStone.color}"
     ></script>
     <toggle-element disabled></toggle-element>
 
@@ -21,7 +21,7 @@ The following example is "close to the platform," which unfortunately means it w
 </thin-skin>
 ```
 
-In less formal, controlled environments:
+In less formal, controlled environments, we can use a small alternative name that is not as easy to "register" in npm (for example):
 
 ```html
 <thin-skin>
@@ -29,8 +29,8 @@ In less formal, controlled environments:
     <mood-stone></mood-stone>
     <script
         🕊️="between ~moodStone and ~toggleElement::change"
-        onkeyup="event.f.moodStone.isHappy = event.f.toggleElement.checked"
-        onkeydown="event.f.toggleElement.textContent = event.f.moodStone.color"
+        onkeyup="event.r = {isHappy: event.f.toggleElement.checked}"
+        onkeydown="event.r = {textContent: event.f.moodStone.color}"
     ></script>
     <toggle-element disabled></toggle-element>
 
@@ -50,8 +50,8 @@ This example can be made to work with CSP if the proper hash token is added to t
     #shadow
     <mood-stone></mood-stone>
     <script nomodule 🕊️="between ~moodStone and ~toggleElement::change">({
-        '^': e => e.f.moodStone.isHappy = e.f.toggleElement.checked,
-        'Y': e => e.f.toggleElement.textContent = e.f.moodStone.color
+        '^': e => e.r = {isHappy: e.f.toggleElement.checked},
+        'Y': e => e.r = {textContent: event.f.moodStone.color}
     )}</script>
     <toggle-element disabled></toggle-element>
 
@@ -59,7 +59,9 @@ This example can be made to work with CSP if the proper hash token is added to t
 </thin-skin>
 ```
 
-"defer-hydration" also works instead of disabled.
+"defer-hydration" also works instead of disabled. [TODO]
+
+
 
 
 
