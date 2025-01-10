@@ -119,7 +119,6 @@ These are the superpowers that be-mediating possesses, where *be-observing* fall
 ## Registering a scriptlet as a web component
 
 ```html
-<!-- first instance -->
  <thin-skin>
     #shadow
     <mood-stone></mood-stone>
@@ -132,14 +131,11 @@ These are the superpowers that be-mediating possesses, where *be-observing* fall
     <be-hive></be-hive>
 </thin-skin>
 
-<!-- subsequent instances -->
+
  <thin-skin>
     #shadow
     <mood-stone></mood-stone>
-    <script nomodule=mood-changer 🕊️="between ~moodStone::turn-a-leaf and ~toggleElement::change">({
-        'rtl': e => e.r = {isHappy: e.f.toggleElement.checked},
-        'ltr': e => e.r = {textContent: event.f.moodStone.color}
-    )}</script>
+    <script nomodule="mood-changer" ></script>
     <toggle-element disabled></toggle-element>
 
     <be-hive></be-hive>
