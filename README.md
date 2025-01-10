@@ -36,7 +36,7 @@ In less formal, controlled environments, we can use a small alternative name tha
     #shadow
     <mood-stone></mood-stone>
     <script
-        🕊️="between ~moodStone and ~toggleElement::change"
+        🕊️="between ~moodStone::turn-a-leaf and ~toggleElement::toggle"
         onchange="
         switch(event.dir){
             case 'ltr':
@@ -65,9 +65,9 @@ This example can be made to work with CSP if the proper hash token is added to t
 <thin-skin>
     #shadow
     <mood-stone></mood-stone>
-    <script nomodule 🕊️="between ~moodStone and ~toggleElement::change">({
-        '^': e => e.r = {isHappy: e.f.toggleElement.checked},
-        'Y': e => e.r = {textContent: event.f.moodStone.color}
+    <script nomodule 🕊️="between ~moodStone::turn-a-leaf and ~toggleElement::change">({
+        'rtl': e => e.r = {isHappy: e.f.toggleElement.checked},
+        'ltr': e => e.r = {textContent: event.f.moodStone.color}
     )}</script>
     <toggle-element disabled></toggle-element>
 
@@ -81,6 +81,12 @@ This example can be made to work with CSP if the proper hash token is added to t
 ## many-to-many? [TODO]
 
 The example above demonstrates a 1-1.  Can we extend that?
+
+Current thinking:
+
+1.  If event specified, can only be a single source / target.
+2.  If event not specified, can be multiple targets, never acts as a source.
+3.  At least one of lhs and rhs has to have an event specified.
 
 
 The following table lists different scenarios, and where each alternative enhancement shines
@@ -108,13 +114,32 @@ These are the superpowers that be-mediating possesses, where *be-observing* fall
 
 1.  Easier support for script tags.  *be-observing* doesn't provide any specific support for script tags, which may be easier to use, especially when working with quotes, double quotes, and other risky characters.  As the documentation for *be-observing*, indicates, it can work with a loosely coupled enhancement, like *be-eventing*, but it is a little more clunky. [TODO]
 2.  *be-mediating* can transmit updates to multiple target elements [TODO]
-3.  The first instance of a mediating expression can be "registered" as a custom element, and reused with other markup where that makes sense.  In fact, even the first instance can be registered outisde the template and referenced [TODO]
+3.  The first instance of a mediating expression can be "registered" as a custom element, and reused with other markup where that makes sense.  In fact, even the first instance can be registered outside the template and referenced [TODO]
+
+## Registering a scriptlet as a web component
 
 ```html
-<thin-skin>
+<!-- first instance -->
+ <thin-skin>
     #shadow
     <mood-stone></mood-stone>
-    <script nomodule=mood-changer 🕊️></script>
+    <script nomodule=mood-changer 🕊️="between ~moodStone::turn-a-leaf and ~toggleElement::change">({
+        rtl: e => e.r = {isHappy: e.f.toggleElement.checked},
+        ltr: e => e.r = {textContent: event.f.moodStone.color}
+    )}</script>
+    <toggle-element disabled></toggle-element>
+
+    <be-hive></be-hive>
+</thin-skin>
+
+<!-- subsequent instances -->
+ <thin-skin>
+    #shadow
+    <mood-stone></mood-stone>
+    <script nomodule=mood-changer 🕊️="between ~moodStone::turn-a-leaf and ~toggleElement::change">({
+        'rtl': e => e.r = {isHappy: e.f.toggleElement.checked},
+        'ltr': e => e.r = {textContent: event.f.moodStone.color}
+    )}</script>
     <toggle-element disabled></toggle-element>
 
     <be-hive></be-hive>
