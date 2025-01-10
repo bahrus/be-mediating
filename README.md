@@ -11,9 +11,17 @@ The following example is "close to the platform," which unfortunately means it w
     #shadow
     <mood-stone></mood-stone>
     <script
-        be-mediating="between ~moodStone and ~toggleElement::change"
-        onkeyup="event.r = {isHappy: event.f.toggleElement.checked}"
-        onkeydown="event.r = {textContent: event.f.moodStone.color}"
+        be-mediating="between ~moodStone::turn-a-leaf and ~toggleElement::toggle"
+        onchange="
+        switch(event.dir){
+            case 'ltr':
+                event.r = {isHappy: event.f.toggleElement.checked};
+                break;
+            case 'rtl':
+                event.r = {textContent: event.f.moodStone.color};
+                break;
+        }
+        "
     ></script>
     <toggle-element disabled></toggle-element>
 
@@ -29,8 +37,16 @@ In less formal, controlled environments, we can use a small alternative name tha
     <mood-stone></mood-stone>
     <script
         🕊️="between ~moodStone and ~toggleElement::change"
-        onkeyup="event.r = {isHappy: event.f.toggleElement.checked}"
-        onkeydown="event.r = {textContent: event.f.moodStone.color}"
+        onchange="
+        switch(event.dir){
+            case 'ltr':
+                event.r = {isHappy: event.f.toggleElement.checked};
+                break;
+            case 'rtl':
+                event.r = {textContent: event.f.moodStone.color};
+                break;
+        }
+        "
     ></script>
     <toggle-element disabled></toggle-element>
 
@@ -62,7 +78,7 @@ This example can be made to work with CSP if the proper hash token is added to t
 "defer-hydration" also works instead of disabled. [TODO]
 
 
-## many-to many? [TODO]
+## many-to-many? [TODO]
 
 The example above demonstrates a 1-1.  Can we extend that?
 
