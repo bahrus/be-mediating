@@ -1,7 +1,5 @@
 # be-mediating (🕊️) [TODO]
 
-Attribute equivalent of [Defining a piping custom element](https://github.com/bahrus/p-et-alia)
-
 ## CSP unsafe example [TODO]
 
 The following example is "close to the platform," which unfortunately means it won't survive minimum recommended CSP scrutiny.  This first example uses the canonical name "be-mediating" for the custom attribute base.
@@ -11,23 +9,22 @@ The following example is "close to the platform," which unfortunately means it w
     #shadow
     <mood-stone></mood-stone>
     <script
-        be-mediating="~moodStone::turn-a-leaf and ~toggleElement::toggle"
-        onchange="
-        switch(event.dir){
-            case 'ltr':
-                event.r = {isHappy: event.f.toggleElement.checked};
-                break;
-            case 'rtl':
-                event.r = {textContent: event.f.moodStone.color};
-                break;
-        }
-        "
+        be-mediating="~moodStone::turn-a-leaf to ~toggleElement"
+        onchange="event.r = {textContent: event.f.moodStone.color};
+    ></script>
+    <script 
+        be-mediating="~toggleElement::toggle to ~moodStone"
+        onchange="event.r = {isHappy: event.f.toggleElement.checked}"
     ></script>
     <toggle-element disabled></toggle-element>
 
     <be-hive></be-hive>
 </thin-skin>
 ```
+
+Not that the event name to watch for ('turn-a-leaf') must be specified.  The first "moodStone" found will be used as the trigger (source) element.
+
+There can be multiple matching target elements (toggleElement)
 
 In less formal, controlled environments, we can use a small alternative name that is not as easy to "register" in npm (for example):
 
@@ -36,17 +33,12 @@ In less formal, controlled environments, we can use a small alternative name tha
     #shadow
     <mood-stone></mood-stone>
     <script
-        🕊️="between ~moodStone::turn-a-leaf and ~toggleElement::toggle"
-        onchange="
-        switch(event.dir){
-            case 'ltr':
-                event.r = {isHappy: event.f.toggleElement.checked};
-                break;
-            case 'rtl':
-                event.r = {textContent: event.f.moodStone.color};
-                break;
-        }
-        "
+        🕊️="~moodStone::turn-a-leaf to ~toggleElement"
+        onchange="event.r = {textContent: event.f.moodStone.color};"
+    ></script>
+    <script 
+        🕊️="~toggleElement::toggle to ~moodStone"
+        onchange="event.r = {isHappy: event.f.toggleElement.checked};"
     ></script>
     <toggle-element disabled></toggle-element>
 
@@ -65,9 +57,11 @@ This example can be made to work with CSP if the proper hash token is added to t
 <thin-skin>
     #shadow
     <mood-stone></mood-stone>
-    <script nomodule 🕊️="between ~moodStone::turn-a-leaf and ~toggleElement::change">({
-        rtl: e => e.r = {isHappy: e.f.toggleElement.checked},
-        ltr: e => e.r = {textContent: e.f.moodStone.color}
+    <script nomodule 🕊️="~moodStone::turn-a-leaf to ~toggleElement">({
+        textContent: event.f.moodStone.color
+    })</script>
+    <script nomodule 🕊️="~toggleElement::toggle to ~moodStone">({
+        isHappy: e.f.toggleElement.checked},
     )}</script>
     <toggle-element disabled></toggle-element>
 
@@ -78,15 +72,7 @@ This example can be made to work with CSP if the proper hash token is added to t
 "defer-hydration" also works instead of disabled. [TODO]
 
 
-## many-to-many? [TODO]
 
-The example above demonstrates a 1-1 relationship.  Can we extend that?
-
-Current thinking:
-
-1.  If event specified, can only be a single source / target.
-2.  If event not specified, can be multiple targets, never acts as a source.
-3.  At least one of lhs and rhs has to have an event specified.
 
 
 The following table lists different scenarios, and where each alternative enhancement shines
@@ -122,12 +108,13 @@ These are the superpowers that be-mediating possesses, where *be-observing* fall
  <thin-skin>
     #shadow
     <mood-stone></mood-stone>
-    <script nomodule=mood-changer 🕊️="between ~moodStone::turn-a-leaf and ~toggleElement::change">({
-        rtl: e => e.r = {isHappy: e.f.toggleElement.checked},
-        ltr: e => e.r = {textContent: event.f.moodStone.color}
+    <script nomodule=mood-changer 🕊️="~moodStone::turn-a-leaf to ~toggleElement">({
+        textContent: event.f.moodStone.color
+    )}</script>
+    <script nomodule="mood-changer" 🕊️="~toggleElement::toggle to ~moodStone">({
+        isHappy: e.f.toggleElement.checked
     )}</script>
     <toggle-element disabled></toggle-element>
-
     <be-hive></be-hive>
 </thin-skin>
 
