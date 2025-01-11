@@ -11,7 +11,7 @@ The following example is "close to the platform," which unfortunately means it w
     #shadow
     <mood-stone></mood-stone>
     <script
-        be-mediating="between ~moodStone::turn-a-leaf and ~toggleElement::toggle"
+        be-mediating="~moodStone::turn-a-leaf and ~toggleElement::toggle"
         onchange="
         switch(event.dir){
             case 'ltr':
@@ -66,8 +66,8 @@ This example can be made to work with CSP if the proper hash token is added to t
     #shadow
     <mood-stone></mood-stone>
     <script nomodule 🕊️="between ~moodStone::turn-a-leaf and ~toggleElement::change">({
-        'rtl': e => e.r = {isHappy: e.f.toggleElement.checked},
-        'ltr': e => e.r = {textContent: e.f.moodStone.color}
+        rtl: e => e.r = {isHappy: e.f.toggleElement.checked},
+        ltr: e => e.r = {textContent: e.f.moodStone.color}
     )}</script>
     <toggle-element disabled></toggle-element>
 
@@ -80,7 +80,7 @@ This example can be made to work with CSP if the proper hash token is added to t
 
 ## many-to-many? [TODO]
 
-The example above demonstrates a 1-1.  Can we extend that?
+The example above demonstrates a 1-1 relationship.  Can we extend that?
 
 Current thinking:
 
