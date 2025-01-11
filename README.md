@@ -43,7 +43,7 @@ In less formal, controlled environments, we can use a small alternative name tha
                 event.r = {isHappy: event.f.toggleElement.checked};
                 break;
             case 'rtl':
-                event.r = {textContent: e.f.moodStone.color};
+                event.r = {textContent: event.f.moodStone.color};
                 break;
         }
         "
