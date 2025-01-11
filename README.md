@@ -10,7 +10,7 @@ The following example is "close to the platform," which unfortunately means it w
     <mood-stone></mood-stone>
     <script
         be-mediating="~moodStone::turn-a-leaf to toggle-element"
-        onchange="event.r = {textContent: event.$.color};
+        onchange="event.r = {textContent: event.$.color};"
     ></script>
     <toggle-element disabled></toggle-element>
     <script 
