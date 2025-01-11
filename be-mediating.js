@@ -1,6 +1,7 @@
 // @ts-check
 import { BE } from 'be-enhanced/BE.js';
 import { propInfo, resolved, rejected } from 'be-enhanced/cc.js';
+import { MountObserver } from 'be-hive';
 import { dispatchEvent as de } from 'trans-render/positractions/dispatchEvent.js';
 
 /** @import {BEConfig, IEnhancement, BEAllProps} from './ts-refs/be-enhanced/types.d.ts' */
@@ -50,6 +51,11 @@ class BeMediating extends BE  {
     #source;
 
     /**
+     * @type {MountObserver | undefined}
+     */
+    #mountObserver;
+
+    /**
      * 
      * @param {BAP} self 
      */
@@ -71,11 +77,20 @@ class BeMediating extends BE  {
     }
 
     /**
-     * 
+     * @param {BAP} self
      * @param {Array<Element>} targets 
      */
-    updateTargets(targets){
-
+    async updateTargets(self, targets){
+        const source = this.#source?.deref();
+        if(source === undefined) throw 'NI';
+        const changeEvent = new ChangeEvent(source);
+        const {enhancedElement} = self;
+        enhancedElement.dispatchEvent(changeEvent);
+        if(changeEvent.r === undefined) return;
+        const {assignGingerly} = await import('trans-render/lib/assignGingerly.js');
+        for(const target of targets){
+            await assignGingerly(target, changeEvent.r);
+        }
     }
 
     /**

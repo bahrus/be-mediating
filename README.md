@@ -12,19 +12,20 @@ The following example is "close to the platform," which unfortunately means it w
         be-mediating="~moodStone::turn-a-leaf to toggle-element"
         onchange="event.r = {textContent: event.$.color};
     ></script>
+    <toggle-element disabled></toggle-element>
     <script 
-        be-mediating="~toggleElement::toggle to ~moodStone"
+        be-mediating="~toggleElement::toggle to mood-stone"
         onchange="event.r = {isHappy: event.$.checked}"
     ></script>
-    <toggle-element disabled></toggle-element>
-
     <be-hive></be-hive>
 </thin-skin>
 ```
 
 Note that the event name to watch for ('turn-a-leaf') must be specified.  The first "moodStone" found will be used as the trigger (source) element.
 
-There can be multiple matching target elements (toggleElement)
+There can be multiple matching target elements (toggleElement).
+
+To avoid any chance of streaming-related timing issues, always place the script element somewhere after the source element for the mediating instruction, as shown above.
 
 In less formal, controlled environments, we can use a small alternative name that is not as easy to "register" in npm (for example):
 
@@ -36,12 +37,12 @@ In less formal, controlled environments, we can use a small alternative name tha
         🕊️="~moodStone::turn-a-leaf to toggle-element"
         onchange="event.r = {textContent: event.$.color};"
     ></script>
+
+    <toggle-element disabled></toggle-element>
     <script 
         🕊️="~toggleElement::toggle to mood-stone"
         onchange="event.r = {isHappy: event.$.checked};"
     ></script>
-    <toggle-element disabled></toggle-element>
-
     <be-hive></be-hive>
 </thin-skin>
 ```
@@ -60,11 +61,11 @@ This example can be made to work with CSP if the proper hash token is added to t
     <script nomodule 🕊️="~moodStone::turn-a-leaf to toggle-element">({
         textContent: e.$.color
     })</script>
+
+    <toggle-element disabled></toggle-element>
     <script nomodule 🕊️="~toggleElement::toggle to mood-stone">({
         isHappy: e.$.checked},
     )}</script>
-    <toggle-element disabled></toggle-element>
-
     <be-hive></be-hive>
 </thin-skin>
 ```
@@ -111,10 +112,11 @@ These are the superpowers that be-mediating possesses, where *be-observing* fall
     <script nomodule=mood-changer 🕊️="~moodStone::turn-a-leaf to toggle-element">({
         textContent: e.$.color
     )}</script>
-    <script nomodule="mood-changer" 🕊️="~toggleElement::toggle to mood-stone">({
+
+    <toggle-element disabled></toggle-element>
+        <script nomodule="mood-changer" 🕊️="~toggleElement::toggle to mood-stone">({
         isHappy: e.$.checked
     )}</script>
-    <toggle-element disabled></toggle-element>
     <be-hive></be-hive>
 </thin-skin>
 
