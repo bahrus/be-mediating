@@ -18,7 +18,7 @@
   "dependencies": {
     "be-enhanced": "0.0.163",
     "be-hive": "0.0.243",
-    "trans-render": "0.0.877"
+    "trans-render": "0.0.878"
   },
   "devDependencies": {
     "ssi-server": "0.0.1",
