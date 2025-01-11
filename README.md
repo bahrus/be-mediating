@@ -9,7 +9,7 @@ The following example is "close to the platform," which unfortunately means it w
     #shadow
     <mood-stone></mood-stone>
     <script
-        be-mediating="~moodStone::turn-a-leaf to ~toggleElement"
+        be-mediating="~moodStone::turn-a-leaf to toggle-element"
         onchange="event.r = {textContent: event.$.color};
     ></script>
     <script 
@@ -33,11 +33,11 @@ In less formal, controlled environments, we can use a small alternative name tha
     #shadow
     <mood-stone></mood-stone>
     <script
-        🕊️="~moodStone::turn-a-leaf to ~toggleElement"
+        🕊️="~moodStone::turn-a-leaf to toggle-element"
         onchange="event.r = {textContent: event.$.color};"
     ></script>
     <script 
-        🕊️="~toggleElement::toggle to ~moodStone"
+        🕊️="~toggleElement::toggle to mood-stone"
         onchange="event.r = {isHappy: event.$.checked};"
     ></script>
     <toggle-element disabled></toggle-element>
@@ -57,10 +57,10 @@ This example can be made to work with CSP if the proper hash token is added to t
 <thin-skin>
     #shadow
     <mood-stone></mood-stone>
-    <script nomodule 🕊️="~moodStone::turn-a-leaf to ~toggleElement">({
+    <script nomodule 🕊️="~moodStone::turn-a-leaf to toggle-element">({
         textContent: e.$.color
     })</script>
-    <script nomodule 🕊️="~toggleElement::toggle to ~moodStone">({
+    <script nomodule 🕊️="~toggleElement::toggle to mood-stone">({
         isHappy: e.$.checked},
     )}</script>
     <toggle-element disabled></toggle-element>
@@ -108,10 +108,10 @@ These are the superpowers that be-mediating possesses, where *be-observing* fall
  <thin-skin>
     #shadow
     <mood-stone></mood-stone>
-    <script nomodule=mood-changer 🕊️="~moodStone::turn-a-leaf to ~toggleElement">({
+    <script nomodule=mood-changer 🕊️="~moodStone::turn-a-leaf to toggle-element">({
         textContent: e.$.color
     )}</script>
-    <script nomodule="mood-changer" 🕊️="~toggleElement::toggle to ~moodStone">({
+    <script nomodule="mood-changer" 🕊️="~toggleElement::toggle to mood-stone">({
         isHappy: e.$.checked
     )}</script>
     <toggle-element disabled></toggle-element>

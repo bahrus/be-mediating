@@ -72,6 +72,14 @@ class BeMediating extends BE  {
 
     /**
      * 
+     * @param {Array<Element>} targets 
+     */
+    updateTargets(targets){
+
+    }
+
+    /**
+     * 
      * @param {BAP} self 
      */
     async hydrate(self){
