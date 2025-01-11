@@ -45,6 +45,11 @@ class BeMediating extends BE  {
     warn=console.warn;
 
     /**
+     * @type {WeakRef<Element> | undefined}
+     */
+    #source;
+
+    /**
      * 
      * @param {BAP} self 
      */
@@ -71,25 +76,38 @@ class BeMediating extends BE  {
      */
     async hydrate(self){
         const {find} = await import('trans-render/dss/find.js');
-        const {ASMR} = await import('trans-render/asmr/asmr.js');
         const {parsedStatements, enhancedElement} = self;
         if(parsedStatements.length !== 1) throw 300;
         const statement = parsedStatements[0];
-        const {originSpecifier} = statement;
-        const remoteEl = await find(enhancedElement, originSpecifier);
-        if(!(remoteEl instanceof Element)) throw 404;
-        const ao = await ASMR.getAO(remoteEl, {
-            evt: originSpecifier.evt,
-            selfIsVal: originSpecifier.path === '$0',
-        });
+        const {originSpecifiers} = statement;
+        const [originSpecifier] = originSpecifiers;
+        const originEl = await find(enhancedElement, originSpecifier);
+        if(!(originEl instanceof Element)) throw 404;
+        this.#source = new WeakRef(originEl);
+        const {evt, raps} = originSpecifier;
+        if(evt === undefined) throw 300;
+        originEl.addEventListener(evt, this);
         console.log({parsedStatements});
         return /** @type {PAP} */({
         });
     }
 
     handleEvent() {
+        console.log('in handle event');
     }
 }
 
 await BeMediating.bootUp();
 export {BeMediating};
+
+export class ChangeEvent extends Event{
+    static eventName = 'change';
+
+    $;
+    r;
+
+    constructor($){
+        super(ChangeEvent.eventName);
+        this.$ = $;
+    }
+}

@@ -10,11 +10,11 @@ The following example is "close to the platform," which unfortunately means it w
     <mood-stone></mood-stone>
     <script
         be-mediating="~moodStone::turn-a-leaf to ~toggleElement"
-        onchange="event.r = {textContent: event.f.moodStone.color};
+        onchange="event.r = {textContent: event.$.color};
     ></script>
     <script 
         be-mediating="~toggleElement::toggle to ~moodStone"
-        onchange="event.r = {isHappy: event.f.toggleElement.checked}"
+        onchange="event.r = {isHappy: event.$.checked}"
     ></script>
     <toggle-element disabled></toggle-element>
 
@@ -22,7 +22,7 @@ The following example is "close to the platform," which unfortunately means it w
 </thin-skin>
 ```
 
-Not that the event name to watch for ('turn-a-leaf') must be specified.  The first "moodStone" found will be used as the trigger (source) element.
+Note that the event name to watch for ('turn-a-leaf') must be specified.  The first "moodStone" found will be used as the trigger (source) element.
 
 There can be multiple matching target elements (toggleElement)
 
@@ -34,11 +34,11 @@ In less formal, controlled environments, we can use a small alternative name tha
     <mood-stone></mood-stone>
     <script
         🕊️="~moodStone::turn-a-leaf to ~toggleElement"
-        onchange="event.r = {textContent: event.f.moodStone.color};"
+        onchange="event.r = {textContent: event.$.color};"
     ></script>
     <script 
         🕊️="~toggleElement::toggle to ~moodStone"
-        onchange="event.r = {isHappy: event.f.toggleElement.checked};"
+        onchange="event.r = {isHappy: event.$.checked};"
     ></script>
     <toggle-element disabled></toggle-element>
 
@@ -58,10 +58,10 @@ This example can be made to work with CSP if the proper hash token is added to t
     #shadow
     <mood-stone></mood-stone>
     <script nomodule 🕊️="~moodStone::turn-a-leaf to ~toggleElement">({
-        textContent: event.f.moodStone.color
+        textContent: e.$.color
     })</script>
     <script nomodule 🕊️="~toggleElement::toggle to ~moodStone">({
-        isHappy: e.f.toggleElement.checked},
+        isHappy: e.$.checked},
     )}</script>
     <toggle-element disabled></toggle-element>
 
@@ -109,10 +109,10 @@ These are the superpowers that be-mediating possesses, where *be-observing* fall
     #shadow
     <mood-stone></mood-stone>
     <script nomodule=mood-changer 🕊️="~moodStone::turn-a-leaf to ~toggleElement">({
-        textContent: event.f.moodStone.color
+        textContent: e.$.color
     )}</script>
     <script nomodule="mood-changer" 🕊️="~toggleElement::toggle to ~moodStone">({
-        isHappy: e.f.toggleElement.checked
+        isHappy: e.$.checked
     )}</script>
     <toggle-element disabled></toggle-element>
     <be-hive></be-hive>
