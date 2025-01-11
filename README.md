@@ -43,7 +43,7 @@ In less formal, controlled environments, we can use a small alternative name tha
                 event.r = {isHappy: event.f.toggleElement.checked};
                 break;
             case 'rtl':
-                event.r = {textContent: event.f.moodStone.color};
+                event.r = {textContent: e.f.moodStone.color};
                 break;
         }
         "
@@ -67,7 +67,7 @@ This example can be made to work with CSP if the proper hash token is added to t
     <mood-stone></mood-stone>
     <script nomodule 🕊️="between ~moodStone::turn-a-leaf and ~toggleElement::change">({
         'rtl': e => e.r = {isHappy: e.f.toggleElement.checked},
-        'ltr': e => e.r = {textContent: event.f.moodStone.color}
+        'ltr': e => e.r = {textContent: e.f.moodStone.color}
     )}</script>
     <toggle-element disabled></toggle-element>
 
