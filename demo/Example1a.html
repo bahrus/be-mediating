@@ -11,8 +11,11 @@
     </script>
 </head>
 <body>
-    <mood-stone></mood-stone>
-    <script nomodule 🕊️="@isHappy::input to mood-stone" onchange="event.r = {isCheerful: event.$.checked}"></script>
+    <mood-stone>
+        <div itemprop=isCheerful></div>
+        <xtal-element infer-props></xtal-element>
+    </mood-stone>
     <input name=isHappy type="checkbox">
+    <script nomodule 🕊️="@isHappy::input to mood-stone" onchange="event.r = {isCheerful: event.$.checked}"></script>
 </body>
 </html>
