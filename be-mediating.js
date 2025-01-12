@@ -90,7 +90,6 @@ class BeMediating extends BE  {
         const {enhancedElement} = self;
         enhancedElement.dispatchEvent(changeEvent);
         if(changeEvent.r === undefined) return;
-        console.log({changeEvent});
         const {assignGingerly} = await import('trans-render/lib/assignGingerly.js');
         for(const target of targets){
             await assignGingerly(target, changeEvent.r);
@@ -114,7 +113,6 @@ class BeMediating extends BE  {
         const {evt, raps} = originSpecifier;
         if(evt === undefined) throw 300;
         originEl.addEventListener(evt, this);
-        console.log({parsedStatements});
         const mo = new MountObserver({
             on: targetCSS
         });
@@ -122,16 +120,15 @@ class BeMediating extends BE  {
         mo.addEventListener('mount', e => {
             const {mountedElement} = /** @type {any} */ (e);
             this.updateTargets(self, [mountedElement]);
-            console.log({e})
         })
         mo.observe(enhancedElement.getRootNode());
         
         return /** @type {PAP} */({
+            resolved: true,
         });
     }
 
     handleEvent() {
-        console.log('in handle event');
         const mo = this.#mountObserver;
         if(mo === undefined) return;
         const {mountedElements} = mo;
