@@ -116,6 +116,7 @@ class BeMediating extends BE  {
         const mo = new MountObserver({
             on: targetCSS
         });
+        (await import('trans-render/lib/nudge.js')).nudge(originEl);
         this.#mountObserver = mo;
         mo.addEventListener('mount', e => {
             const {mountedElement} = /** @type {any} */ (e);

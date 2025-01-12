@@ -74,7 +74,7 @@ This example can be made to work with CSP if the proper hash token is added to t
 </thin-skin>
 ```
 
-"defer-hydration" also works instead of disabled. [TODO]
+<!-- "defer-hydration" also works instead of disabled. [TODO] -->
 
 
 
