@@ -1,6 +1,6 @@
-# be-mediating (🕊️) [TODO]
+# be-mediating (🕊️) [WIP]
 
-## CSP unsafe example [TODO]
+## CSP unsafe example
 
 The following example is "close to the platform," which unfortunately means it won't survive minimum recommended CSP scrutiny.  This first example uses the canonical name "be-mediating" for the custom attribute base.
 
@@ -21,11 +21,15 @@ The following example is "close to the platform," which unfortunately means it w
 </thin-skin>
 ```
 
-Note that the event name to watch for ('turn-a-leaf') must be specified.  The first "moodStone" found will be used as the trigger (source) element.
+Note that the event name to watch for ('turn-a-leaf') must be specified.  
 
-There can be multiple matching target elements (toggleElement).
+The expression before the "to" uses [DSS](https://github.com/bahrus/trans-render/wiki/VIII.--Directed-Scoped-Specifiers-(DSS)) syntax.
 
 To avoid any chance of streaming-related timing issues, always place the script element somewhere after the source element for the mediating instruction, as shown above.
+
+The expression after the "to" is a simple css selector.  There can be multiple matching target elements (toggleElement).  If an element matching the criteria is added afterwards, it automatically gets updated.
+
+
 
 In less formal, controlled environments, we can use a small alternative name that is not as easy to "register" in npm (for example):
 
