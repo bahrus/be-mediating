@@ -65,16 +65,21 @@ class BeMediating extends BE  {
         const js = enhancedElement.innerHTML.trim();
         if(!js) return /** @type {PAP} */({
         });
+        /**
+         * @type {(e: Event) => void}
+         */
+        let handler;
         if(js.startsWith('({')){
             const fullExpr = `const {$} = e;
             e.r = ${js};
 `;
-            const handler = (await import('trans-render/lib/activate.js')).activate(fullExpr);
-            //TODO abort controller
-            enhancedElement.addEventListener('change', handler);
+            handler = (await import('trans-render/lib/activate.js')).activate(fullExpr);
+
         }else{
-            throw 'NI';
+            handler = (await import('trans-render/lib/activate.js')).activate(js);
         }
+        //TODO abort controller
+        enhancedElement.addEventListener('change', handler);
         return /** @type {PAP} */({
         });
     }

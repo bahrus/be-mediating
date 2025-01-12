@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- #include virtual="/imports.html" -->
+    <title>Example 2a</title>
+    <script type=module>
+        import 'xtal-element/index.js';
+        import '/🕊️.js';
+    </script>
+</head>
+<body>
+    <mood-stone>
+        <div itemprop=isCheerful></div>
+        <xtal-element infer-props></xtal-element>
+    </mood-stone>
+    <input name=isHappy type="checkbox">
+    <script nomodule 
+        🕊️="@isHappy::input to mood-stone">
+        e.r = {
+            isCheerful: e.$.checked
+        };
+    </script>
+</body>
+</html>
