@@ -90,6 +90,7 @@ class BeMediating extends BE  {
         const {enhancedElement} = self;
         enhancedElement.dispatchEvent(changeEvent);
         if(changeEvent.r === undefined) return;
+        console.log({changeEvent});
         const {assignGingerly} = await import('trans-render/lib/assignGingerly.js');
         for(const target of targets){
             await assignGingerly(target, changeEvent.r);
