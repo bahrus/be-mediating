@@ -3,6 +3,7 @@ import { BE } from 'be-enhanced/BE.js';
 import { propInfo, resolved, rejected } from 'be-enhanced/cc.js';
 import { MountObserver } from 'mount-observer/MountObserver.js';
 import { dispatchEvent as de } from 'trans-render/positractions/dispatchEvent.js';
+import { set } from 'trans-render/XV/set.js';
 
 /** @import {BEConfig, IEnhancement, BEAllProps} from './ts-refs/be-enhanced/types.d.ts' */
 /** @import {Actions, PAP, AP, BAP} from './ts-refs/be-mediating/types.d.ts' */
@@ -132,10 +133,12 @@ class BeMediating extends BE  {
         console.log('in handle event');
         const mo = this.#mountObserver;
         if(mo === undefined) return;
-        const {mountedElements, } = mo;
-
-        const weakRefs = Array.from(mountedElements);
-
+        const {mountedElements} = mo;
+        const {setWeak} = mountedElements;
+        const weakRefs = Array.from(setWeak);
+        const targets = weakRefs.map(wr => wr.deref()).filter(x => !(x === undefined));
+        const self = /** @type {BAP} *//** @type {any} */ (this);
+        this.updateTargets(self, targets);
     }
 }
 
