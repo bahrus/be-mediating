@@ -66,7 +66,7 @@ class BeMediating extends BE  {
         if(!js) return /** @type {PAP} */({
         });
         if(js.startsWith('({')){
-            const fullExpr = `const {f, args} = e;
+            const fullExpr = `const {$} = e;
             e.r = ${js};
 `;
             const handler = (await import('trans-render/lib/activate.js')).activate(fullExpr);
