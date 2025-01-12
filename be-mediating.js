@@ -1,7 +1,7 @@
 // @ts-check
 import { BE } from 'be-enhanced/BE.js';
 import { propInfo, resolved, rejected } from 'be-enhanced/cc.js';
-import { MountObserver } from 'be-hive';
+import { MountObserver } from 'mount-observer/MountObserver.js';
 import { dispatchEvent as de } from 'trans-render/positractions/dispatchEvent.js';
 
 /** @import {BEConfig, IEnhancement, BEAllProps} from './ts-refs/be-enhanced/types.d.ts' */
@@ -62,6 +62,8 @@ class BeMediating extends BE  {
     async parseJS(self){
         const {enhancedElement} = self;
         const js = enhancedElement.innerHTML.trim();
+        if(!js) return /** @type {PAP} */({
+        });
         if(js.startsWith('({')){
             const fullExpr = `const {f, args} = e;
             e.r = ${js};
@@ -102,7 +104,7 @@ class BeMediating extends BE  {
         const {parsedStatements, enhancedElement} = self;
         if(parsedStatements.length !== 1) throw 300;
         const statement = parsedStatements[0];
-        const {originSpecifiers} = statement;
+        const {originSpecifiers, targetCSS} = statement;
         const [originSpecifier] = originSpecifiers;
         const originEl = await find(enhancedElement, originSpecifier);
         if(!(originEl instanceof Element)) throw 404;
@@ -111,12 +113,29 @@ class BeMediating extends BE  {
         if(evt === undefined) throw 300;
         originEl.addEventListener(evt, this);
         console.log({parsedStatements});
+        const mo = new MountObserver({
+            on: targetCSS
+        });
+        this.#mountObserver = mo;
+        mo.addEventListener('mount', e => {
+            const {mountedElement} = /** @type {any} */ (e);
+            this.updateTargets(self, [mountedElement]);
+            console.log({e})
+        })
+        mo.observe(enhancedElement.getRootNode());
+        
         return /** @type {PAP} */({
         });
     }
 
     handleEvent() {
         console.log('in handle event');
+        const mo = this.#mountObserver;
+        if(mo === undefined) return;
+        const {mountedElements, } = mo;
+
+        const weakRefs = Array.from(mountedElements);
+
     }
 }
 

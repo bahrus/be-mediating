@@ -12,9 +12,7 @@
 </head>
 <body>
     <mood-stone></mood-stone>
-    <script nomodule 🕊️="@isHappy::input to ~moodStone">({
-        isCheerful: isHappy.checked
-    })</script>
+    <script nomodule 🕊️="@isHappy::input to mood-stone" onchange="event.r = {isCheerful: event.$.checked}"></script>
     <input name=isHappy type="checkbox">
 </body>
 </html>

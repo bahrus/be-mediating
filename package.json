@@ -18,6 +18,7 @@
   "dependencies": {
     "be-enhanced": "0.0.163",
     "be-hive": "0.0.243",
+    "mount-observer": "0.0.40",
     "trans-render": "0.0.878"
   },
   "devDependencies": {
