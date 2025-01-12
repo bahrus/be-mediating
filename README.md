@@ -53,7 +53,7 @@ In less formal, controlled environments, we can use a small alternative name tha
 
 
 
-## CSP safe example [TODO]
+## CSP safe example
 
 This example can be made to work with CSP if the proper hash token is added to the meta / http header:
 
