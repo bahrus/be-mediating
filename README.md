@@ -107,7 +107,7 @@ These are the superpowers that be-mediating possesses, where *be-observing* fall
 2.  *be-mediating* can transmit updates to multiple target elements [TODO]
 3.  The first instance of a mediating expression can be "registered" as a custom element, and reused with other markup where that makes sense.  In fact, even the first instance can be registered outside the template and referenced [TODO]
 
-## Registering a scriptlet as a web component
+## Registering a scriptlet as a web component [TODO]
 
 ```html
  <thin-skin>
@@ -134,3 +134,63 @@ These are the superpowers that be-mediating possesses, where *be-observing* fall
     <be-hive></be-hive>
 </thin-skin>
 ```
+
+## Viewing Demos Locally
+
+Any web server that can serve static files will do, but...
+
+1.  Install git.
+2.  Fork/clone this repo.
+3.  Install node.js.
+4.  Open command window to folder where you cloned this repo.
+5.  > npm install
+6.  > npm run serve
+7.  Open http://localhost:8000/demo/ in a modern browser.
+
+## Running Tests
+
+```
+> npm run test
+```
+
+## Using from ESM Module:
+
+```JavaScript
+import 'be-mediating/be-mediating.js';
+```
+
+## Using from CDN:
+
+```html
+<script type=module crossorigin=anonymous>
+    import 'https://esm.run/be-mediating';
+</script>
+```
+
+[or](https://generator.jspm.io)
+
+```html
+   <script type="importmap">
+  {
+    "imports": {
+      "be-mediating": "https://ga.jspm.io/npm:be-mediating@0.0.1/be-mediating.js"
+    },
+    "scopes": {
+      "https://ga.jspm.io/": {
+        "be-enhanced/": "https://ga.jspm.io/npm:be-enhanced@0.0.163/",
+        "mount-observer/MountObserver.js": "https://ga.jspm.io/npm:mount-observer@0.0.39/MountObserver.js",
+        "trans-render/": "https://ga.jspm.io/npm:trans-render@0.0.876/"
+      },
+      "https://ga.jspm.io/npm:be-enhanced@0.0.163/": {
+        "trans-render/positractions/dispatchEvent.js": "https://ga.jspm.io/npm:trans-render@0.0.876/positractions/dispatchEvent.js"
+      },
+      "https://ga.jspm.io/npm:trans-render@0.0.877/": {
+        "trans-render/lib/assignGingerly.js": "https://ga.jspm.io/npm:trans-render@0.0.877/lib/assignGingerly.js"
+      }
+    }
+  }
+  </script>
+```
+
+
+

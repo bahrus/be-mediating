@@ -19,7 +19,7 @@ const dssArrayKeys = [
  * @type {Partial<EMC<any, AP>>}
  */
 export const emc = {
-    enhancedElementMatches: 'script[nomodule]',
+    enhancedElementInstanceOf: [HTMLScriptElement],
     base: 'be-mediating',
     map: {
         '0.0':{
