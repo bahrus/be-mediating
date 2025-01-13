@@ -1,4 +1,10 @@
-# be-mediating (🕊️) [WIP]
+# be-mediating (🕊️)
+
+[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/be-mediating)
+[![Playwright Tests](https://github.com/bahrus/be-mediating/actions/workflows/CI.yml/badge.svg)](https://github.com/bahrus/be-mediating/actions/workflows/CI.yml)
+[![NPM version](https://badge.fury.io/js/be-mediating.png)](http://badge.fury.io/js/be-mediating)
+[![How big is this package in your project?](https://img.shields.io/bundlephobia/minzip/be-mediating?style=for-the-badge)](https://bundlephobia.com/result?p=be-mediating)
+<img src="http://img.badgesize.io/https://cdn.jsdelivr.net/npm/be-mediating?compression=gzip">
 
 ## CSP unsafe example
 
