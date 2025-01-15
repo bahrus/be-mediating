@@ -16,15 +16,15 @@
     "update": "ncu -u && npm install"
   },
   "dependencies": {
-    "be-enhanced": "0.0.163",
-    "be-hive": "0.0.243",
+    "be-enhanced": "0.0.165",
+    "be-hive": "0.0.245",
     "mount-observer": "0.0.40",
-    "trans-render": "0.0.878"
+    "trans-render": "0.0.880"
   },
   "devDependencies": {
     "ssi-server": "0.0.1",
     "@playwright/test": "1.49.1",
-    "xtal-element": "0.0.627"
+    "xtal-element": "0.0.629"
   },
   "exports": {
     ".": "./be-mediating.js",
